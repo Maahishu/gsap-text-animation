@@ -1,8 +1,11 @@
-// const { SplitText } = require("gsap/all");
+import { gsap } from "gsap/all";
+// import { gsap } from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+import {  ScrollTrigger} from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
-// var mySplitText  = new SplitText
+gsap.registerPlugin(TextPlugin)
+
 let tl = gsap.timeline();
 tl.from('.alpha', {
     y:-500,
@@ -132,20 +135,3 @@ gsap.from('.bot3', {
     x :500,
     color:'black',
 })
-
-
-// Select the element containing the text you want to animate
-const myTextElement = document.getElementsByClassName('top7');
-
-// Create a SplitText instance for the selected element
-const mySplitText = new SplitText(myTextElement);
-console.log(mySplitText);
-
-// Now you can animate individual characters or words using GSAP
-gsap.to(mySplitText.chars, {
-  duration: 1,
-  y: 100,
-  stagger: 0.1,
-  opacity: 0,
-  ease: 'back.out(1.7)',
-});
